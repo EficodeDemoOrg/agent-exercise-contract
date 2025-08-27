@@ -6,7 +6,7 @@
 Our team is building a "Digital Grade Checker" for a construction technology client. The tool will provide machine operators with real-time, visual feedback to ensure their work matches digital construction plans.
 
 **Goal:**  
-Accelerate client feedback by developing the UI prototype and backend engine in parallel, using a shared data contract.
+Accelerate client feedback by developing the UI prototype and backend engine in parallel, using a [shared data contract](data/DATA_CONTRACT.md).
 
 **Purpose of MVP:**  
 - **UI Prototype:** Early client feedback on look and feel.
