@@ -75,8 +75,9 @@ Accelerate client feedback by developing the UI prototype and backend engine in 
 - **Adopt an Agentic Workflow**: The primary goal is to practice building a complete prototype using an AI agent as your primary development partner.
 - **Practice Thread Isolation**: Learn to manage complexity by assigning distinct, single-purpose tasks to separate, isolated agent threads.
 - **Utilize AI for Planning**: Use the agent not just for coding, but as a strategic partner to create a project roadmap and a TODO.md to track progress.
-- **Master Task Decomposition**: Break down the larger project goal into small, well-defined tasks that can be completed by a focused agent in a single thread.
-- **Leverage Agent Personas**: Improve the quality of the AI's output by assigning it specific, expert roles (e.g., "You are a senior backend developer," "You are a UX expert specializing in SVG").
+- **Task Decomposition**: Break down the larger project goal into small, well-defined tasks that can be completed by a focused agent in a single thread.
+- **Practice Memory Persistence Between Agent Threads**: Utilize persisting markdown files in a systematic way to ground agents in a shared 'memory'.
+- **Leverage Agent Roles**: Improve the quality of the AI's output by assigning it specific, expert roles (e.g., "You are a senior backend developer," "You are a UX expert specializing in SVG").
 
 **Note:**  
 Both components must strictly follow the shared Data Contract to ensure seamless integration and rapid feedback cycles.
