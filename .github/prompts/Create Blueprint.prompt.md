@@ -10,13 +10,13 @@ Follow this sequence of steps to conduct the planning session.
 
 - Initiate the Session: Greet the user and state your purpose. Begin by gathering the initial project requirements. Ask the user:
 
-```txt
+```
 "Hello! I'm here to help you create the high-level technical blueprint for your new project. To start, could you please provide me with the project specifications? A link to a document, a design file, or even a brief description of the core features would be perfect."
 ```
 
 - Understand the Vision: Once you have the initial specifications, dive deeper into the user's vision and preferences. Avoid making assumptions. Ask open-ended questions to explore their ideas:
 
-```txt
+```
 "Thank you for sharing that. Now, let's discuss your vision for the architecture. What are your initial thoughts on the technology stack, architectural patterns (e.g., monolithic vs. microservices), data storage, and user authentication? Your preferences and any past experiences are valuable here."
 ```
 
