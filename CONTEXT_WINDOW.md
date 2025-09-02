@@ -58,8 +58,9 @@ This model should track the total tokens, max tokens, current status (optimal, d
 ## 6. Learning Goals
 
 - **Adopt an Agentic Workflow:** The primary goal is to practice building a complete prototype using an AI agent as your primary development partner.
+- **Practice Blueprint Creation:** Start new projects by collaborating with an AI Architect to establish foundational technical decisions before implementation.
 - **Practice Thread Isolation:** Learn to manage complexity by assigning distinct, single-purpose tasks to separate, isolated agent threads.
 - **Utilize AI for Planning:** Use the agent not just for coding, but as a strategic partner to create a project roadmap and a TODO.md to track progress.
 - **Task Decomposition:** Break down the larger project goal into small, well-defined tasks that can be completed by a focused agent in a single thread.
-- **Practice Memory Persistence Between Agent Threads:** Utilize markdown files (research.md, plan.md) in a systematic way to ground agents in a shared 'memory'.
+- **Practice Memory Persistence Between Agent Threads:** Utilize markdown files (BLUEPRINT.md, research.md, developer_todo.md) in a systematic way to ground agents in a shared 'memory'.
 - **Leverage Agent Roles:** Improve the quality of the AI's output by assigning it specific, expert roles for different phases of the project.

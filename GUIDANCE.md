@@ -1,7 +1,11 @@
 # Workshop Guidance: Process-Driven AI Development
 
 ## Objective
-Build the "Digital Grade Checker" MVP from scratch using a structured, artifact-driven workflow that leverages AI assistance effectively. This guide shifts focus from agent personas to clear processes and deliverables.
+Build your chosen MVP project from scratch using a structured, artifact-driven workflow that leverages AI assistance effectively. This guide shifts focus from agent personas to clear processes and deliverables.
+
+Choose between:
+- **Digital Grade Checker**: Construction technology tool with frontend/backend paths
+- **Context Window Visualizer**: AI debugging tool with integrated web application
 
 ## Core Principles
 
@@ -9,7 +13,7 @@ Build the "Digital Grade Checker" MVP from scratch using a structured, artifact-
 Your context window is a resource. Aim to keep your input (prompts + files) below 40-60% of the total limit. This leaves the AI enough room to think and generate a complete response.
 
 ### Separate Reading from Writing
-Phases 1 (Research) and 2 (Planning) are for understanding; you should be reading and analyzing files. Phase 3 (Execution) is for generating; you should be focused on writing code for small, well-defined tasks.
+Phases 1 (Research) and 2 (Task Execution) are for understanding; you should be reading and analyzing files. Phase 2 (Execution) is for generating; you should be focused on writing code for small, well-defined tasks.
 
 ### One Thread, One Goal
 Use separate conversation threads for research, planning, and each individual implementation task. This prevents context bleed and keeps the AI focused.
@@ -34,101 +38,113 @@ This prevents common pitfalls: jumping between tasks, mixing contexts, and losin
 
 **Reusable Prompts:** Copilot uses `.github/prompts`. For Cursor, you can create a local `.cursor/prompts` folder and @-reference the files.
 
+## Phase 0: Blueprint Creation (Foundational Architecture)
+
+**Goal:**  
+Collaborate with an AI Architect to establish foundational technical decisions for a new, greenfield project.
+
+**Objective:** Create the high-level technical blueprint that captures core architectural decisions before diving into detailed research and implementation.
+
+### When to Use This Phase
+- Starting a completely new project from specifications
+- Need to establish technology stack, architectural patterns, and high-level components
+- Want to capture fundamental decisions that will guide all subsequent development
+
+### Expected Deliverable
+- **`BLUEPRINT.md`** - A foundational document containing:
+  - Technology stack decisions (frontend, backend, database, deployment)
+  - Architectural pattern choice (monolithic, microservices, serverless)
+  - High-level component breakdown
+  - Initial data model structure
+  - Authentication strategy
+  - Human validation sections for each major decision
+
+### Steps
+
+1. **Initialize Blueprint Session**
+    - Create a new, clean chat thread named "Blueprint Creation".
+    - Use the `Create Blueprint.prompt.md` template from `.github/prompts`.
+    - Provide project specifications or requirements documents.
+
+2. **Collaborative Architecture Discussion**
+    - Engage with the AI Architect to explore technology choices
+    - Discuss pros and cons of different architectural approaches
+    - Make foundational decisions about stack, patterns, and structure
+    - Ensure all major decisions are captured with reasoning
+
+3. **Generate and Validate Blueprint**
+    - AI creates the structured `BLUEPRINT.md` document
+    - Review each section carefully and provide validation comments
+    - Iterate on any decisions that need refinement
+    - Ensure the blueprint provides clear guidance for subsequent phases
+
+4. **Context Integration**
+    - Add concise architectural summary to `.github/copilot-instructions.md`
+    - Ensure core decisions are available for all future AI interactions
+
+### Transition to Research Phase
+Once the blueprint is validated, use it as foundational context for Phase 1 (Research & Discovery) to dive deeper into implementation details.
+
+---
+
 ## Phase 1: Research & Discovery (Interactive Research)
 
 **Goal:**  
 Collaboratively explore the project requirements with the AI to produce a comprehensive summary of the problem space.
 
-**Objective:** This phase replaces traditional architecture roles. Its sole purpose is to deeply understand the problem, not to finalize the architecture.
+**Objective:** Building on the foundational blueprint from Phase 0, dive deeper into implementation requirements, constraints, and technical details needed for concrete planning.
 
 ### Expected Deliverable
 
 - **`research.md`** - A comprehensive understanding document containing:
-  - Summary of project goals
-  - List of known constraints and requirements
-  - Initial thoughts on potential tech stack choices (as ideas, not final decisions)
-  - List of open questions or assumptions that need validation
+  - Summary of project goals and detailed requirements
+  - List of known constraints and technical limitations
+  - Implementation considerations based on the established architecture
+  - List of open questions or assumptions that need validation before planning
 
 ### Steps
 
 1. **Initialize Interactive Research Session**
     - Create a new, clean chat thread named "Research & Discovery".
-    - Use a templated, interactive prompt that guides the AI to ask clarifying questions about requirements, constraints, user stories, and technical context before proposing solutions.
+    - Provide the validated `BLUEPRINT.md` as foundational context.
+    - Use a templated, interactive prompt that guides the AI to ask clarifying questions about implementation requirements, constraints, and technical details.
 
 2. **Engage in Collaborative Dialogue**
-    - Reference the `README.md` and `DATA_CONTRACT.md` with @ or # in the chat context or drag and drop them.
-    - Let the AI consume these documents and ask clarifying questions.
-    - This is a **read-heavy phase** - focus on understanding, not implementing.
+    - Reference your project's key documents with @ or # in the chat context or drag and drop them:
+      - **For Digital Grade Checker**: `README.md`, `DATA_CONTRACT.md`, and validated `BLUEPRINT.md`
+      - **For Context Window Visualizer**: `CONTEXT_WINDOW.md` and validated `BLUEPRINT.md`
+    - Let the AI consume these documents and ask clarifying questions about implementation details.
+    - This is a **read-heavy phase** - focus on understanding implementation requirements, not implementing.
 
 3. **Explore Requirements Together**
     - Engage in back-and-forth discussion about:
-      - Project requirements and constraints
-      - User stories and success criteria
-      - Technical context and existing systems
-      - Potential approaches and trade-offs
-    - The AI should be asking YOU questions to understand the problem space.
+      - Detailed implementation requirements within the established architecture
+      - Technical constraints and integration challenges
+      - User stories and acceptance criteria
+      - Implementation approaches and trade-offs within the chosen stack
+    - The AI should be asking YOU questions to understand implementation details and constraints.
 
 4. **Validate Understanding**
     - Ensure the AI has a comprehensive understanding of:
-      - What success looks like
-      - What constraints exist
-      - What assumptions need to be validated
-      - What technical options are available
+      - How to implement the project within the established architectural framework
+      - What specific constraints exist for implementation
+      - What assumptions need validation before detailed planning begins
+      - What technical details are needed for concrete implementation planning
 
 5. **Generate Research Summary**
     - Once understanding is complete, ask the AI to generate the `research.md` document.
-    - Review to ensure it captures the full problem space without premature solution commitments.
+    - Review to ensure it captures implementation requirements and constraints without contradicting the established blueprint.
 
 ---
 
-## Phase 2: Implementation Planning
+## Phase 2: Task Execution (Two-Step Process)
+
+### Step 2a: Task Decomposition
 
 **Goal:**  
-Take the validated research.md and turn it into an actionable engineering plan with concrete steps and technical decisions.
+Transform the validated research and blueprint into small, executable implementation tasks.
 
-### Expected Deliverable
-
-- **`plan.md`** - A detailed, step-by-step implementation plan structured with:
-  - Clear implementation phases
-  - Technical steps with specific file/code references
-  - Success criteria for each phase
-  - Testing and validation approaches
-
-### Steps
-
-1. **Initialize Implementation Planning**
-    - **Start a new thread** named "Implementation Planning".
-    - Provide the `research.md` as the core context.
-    - This remains a **read-heavy phase** as the AI synthesizes research into a structured plan.
-
-2. **Guide Plan Creation**
-    - Ask the AI to create a detailed implementation plan based on the research findings.
-    - The AI should outline:
-      - Implementation phases in logical order
-      - Specific technical changes required
-      - File structures and code organization
-      - Testing and validation criteria
-
-3. **Refine and Validate Plan**
-    - Review the plan for completeness and feasibility.
-    - Challenge assumptions and ask for alternatives where needed.
-    - Ensure the plan is concrete enough to guide implementation.
-
-4. **Finalize Implementation Strategy**
-    - Confirm the plan addresses all requirements from the research phase.
-    - Ensure success criteria are clear and measurable.
-    - Validate that the plan can be broken down into discrete tasks.
-
----
-
-## Phase 3: Task Execution (Two-Step Process)
-
-### Step 3a: Task Decomposition
-
-**Goal:**  
-Break down the high-level plan.md into small, executable tasks.
-
-**Objective:** Transform the implementation plan into granular, self-contained tasks that can be executed in isolation.
+**Objective:** Bridge the gap between high-level architecture (blueprint) and detailed requirements (research) by creating granular, self-contained tasks that can be executed in isolation.
 
 #### Expected Deliverable
 
@@ -142,20 +158,23 @@ Break down the high-level plan.md into small, executable tasks.
 
 1. **Initialize Task Decomposition**
     - **Start a new thread** named "Task Decomposition".
-    - Provide the `plan.md` as context.
+    - Provide both the `BLUEPRINT.md` and `research.md` as context.
+    - Use the `Create Plan.prompt.md` template from `.github/prompts` for structured task breakdown.
 
 2. **Generate Task Breakdown**
-    - Ask the AI: "Based on this plan, generate a list of small, concrete implementation tasks. Each task should be executable in isolation and include specific instructions for the implementer."
-    - Ensure tasks are granular enough for focused implementation.
+    - Ask the AI: "Based on the blueprint architecture and research findings, generate a list of small, concrete implementation tasks. Each task should be executable in isolation and include specific instructions for the implementer."
+    - Ensure tasks follow the architectural decisions from the blueprint
+    - Ensure tasks address the requirements and constraints from research
 
 3. **Validate Task Quality**
     - Review each task to ensure it:
       - Can be completed independently
       - Has clear, specific instructions
       - Includes acceptance criteria
-      - Doesn't require architectural decisions
+      - Aligns with both blueprint and research findings
+      - Doesn't require additional architectural decisions
 
-### Step 3b: Task Execution
+### Step 2b: Task Execution
 
 **Goal:**  
 Write code for one task at a time using isolated, focused conversations.
@@ -183,7 +202,7 @@ Write code for one task at a time using isolated, focused conversations.
     - If the task reveals larger issues or scope conflicts:
       - Stop implementation
       - Document the issue
-      - Return to the Task Decomposition thread to revise the plan
+      - Return to the Task Decomposition thread to revise the task list
       - Create new, refined tasks as needed
 
 4. **Complete and Validate**
